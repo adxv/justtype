@@ -1,0 +1,155 @@
+@keyframes color-cycle {
+    0% { background-color: #99CCCC; }
+    33% { background-color: #877BB7; }
+    66% { background-color: #E279C6; }
+    100% { background-color: #99CCCC; }
+}
+
+@font-face {
+    font-family: 'mod20';
+    src: url('./fonts/MOD20.TTF');
+}
+@font-face {
+    font-family: 'bodonimt';
+    src: url('./fonts/BOD_R.TTF');
+}
+@font-face {
+    font-family: 'bodonimtbold';
+    src: url('./fonts/BOD_B.TTF');
+}
+@font-face {
+    font-family: 'NotoSerifDisplay-Bold';
+    src: url('./fonts/NotoSerifDisplay-Bold.ttf');
+}
+@font-face {
+    font-family: 'NotoSerifDisplay-Medium';
+    src: url('./fonts/NotoSerifDisplay-Medium.ttf');
+}
+@font-face {
+    font-family: 'NotoSerifDisplay-Regular';
+    src: url('./fonts/NotoSerifDisplay-Regular.ttf');
+}
+
+.title {
+    font-family: NotoSerifDisplay-Bold,serif;
+    font-size: 7rem;
+    color: whitesmoke;
+    text-shadow: 1px 3px 3px rgba(0,0,0,0.31);
+}
+.text {
+    font-family: NotoSerifDisplay-Bold,serif;
+    font-size: 4rem;
+    color: whitesmoke;
+    text-shadow: 1px 3px 3px rgba(0,0,0,0.31);
+}
+.subtext {
+    font-family: NotoSerifDisplay-Medium,serif;
+    font-size: 3rem;
+    color: whitesmoke;
+    text-shadow: 1px 3px 3px rgba(0,0,0,0.31);
+    margin-right: 2rem;
+}
+.selected {
+    text-decoration: underline;
+    color: whitesmoke;
+}
+#game-messages {
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+.word {
+    margin-right: 20px;
+  }
+.current-word {
+    background-color: transparent;
+}
+.correct-current-chars {
+    color: transparent;
+}
+
+.typed-cursor {
+    font-family: NotoSerifDisplay-Medium,serif;
+    font-size: 6rem;
+    color: whitesmoke;
+    text-shadow: 1px 3px 3px rgba(0,0,0,0.31);
+}
+body {
+    animation: color-cycle 6s linear infinite;
+    transition: background-color 0.5s ease;
+    overflow: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.gameFieldClass {
+    background-color: transparent;
+    border: none;
+    font-family: NotoSerifDisplay-Bold,serif;
+    font-size: 3.95rem;
+    color: #adc7ff;
+    caret-color: whitesmoke;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #f4f4f4;
+    -webkit-text-fill-color: #FFCAB1;
+    text-shadow: 3px 3px 7px rgba(0, 0, 0, 1);
+}
+.button {
+    background-color: transparent;
+    border: none;
+    font-family: NotoSerifDisplay-Medium,serif;
+    font-size: 3rem;
+    color: whitesmoke;
+    text-shadow: 1px 3px 3px rgba(0,0,0,0.31);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #f4f4f4;
+    margin-right: 10%;
+}
+.git {
+    font-size: 3rem;
+}
+.act:focus {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #f4f4f4;
+    -webkit-text-fill-color: #FFCAB1;
+    outline: none;
+    border: none;
+}
+.act:hover {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #f4f4f4;
+    -webkit-text-fill-color: #FFCAB1;
+    outline: none;
+    border: none;
+}
+.gameFieldClass:focus {
+    outline: none;
+    border: none;
+}
+.container {
+    height: 100vh;
+}
+.center {
+    height: 50vh; /* This is the height of the element */
+    margin-top: 25vh;
+}
+.row {
+    background-color: transparent;
+    align-items: center;
+}
+.col {
+    background-color: transparent;
+}
+.card {
+    background-color: transparent;
+    border: none;
+}
+#game-messages {
+    display: flex;
+    align-items: center;
+}

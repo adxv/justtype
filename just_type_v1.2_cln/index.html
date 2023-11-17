@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Just Type.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/78bff20619.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container">
+        <div class="center">
+            <div class="row" style="margin-bottom: 1rem;">
+                <div class="col-4">
+                    <div class="text" id="timer"></div>
+                </div>
+                <div class="col-8">
+                    <span class="title" id="element"></span>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 9rem;">
+                <div class="col">
+                    <input class="gameFieldClass" type="text" id="gameField" oninput="checkInput()"
+                        style="position: absolute; z-index: 2;">
+                    <div class="text" id="game-messages" style="position: absolute; z-index: 1;"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col"">
+                    <button class="button p-0 act" onclick="location.reload();"><i
+                            class="fa-solid fa-arrows-rotate"></i></button>
+                    <button class="button act" id="toggleGamemode"></button>
+                    <a class="button act" href="https://github.com/adxv/justtype" target="_blank"><i class="button git fa-brands fa-github" style="color: #f5f5f5;"></i></a>
+                </div>
+                <div class="col"><span class="subtext" id="gameovertext"></span></div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/words.js"></script>
+    <script src="./js/poems.js"></script>
+    <script src="./js/typist.js"></script>
+</body>
+
+</html>
