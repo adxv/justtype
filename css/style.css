@@ -162,7 +162,7 @@ body::-webkit-scrollbar {
 
 /*leaderboard*/
 .leaderboard {
-    background: none; /* Add a background color */
+    background: none;
 }
 
 table {
@@ -170,9 +170,9 @@ table {
     margin-bottom: 75vh;
     width: 100%;
     border: 2px solid rgba(245, 245, 245, 0.7);
-    border-spacing: 0; /* Add border-spacing */
+    border-spacing: 0;
     border-collapse: separate;
-    border-radius: 10px; /* Move border-radius here */
+    border-radius: 10px;
 }
 
 th {
@@ -200,4 +200,13 @@ tr:nth-child(even) {
 
 tr:hover {
     background-color: #f2f2f260;
+}
+#warning {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    #warning {
+        display: block;
+    }
 }

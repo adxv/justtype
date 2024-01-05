@@ -41,6 +41,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
 <body>
     <div class="container">
         <div class="center">
+            <div class="row">
+                <div id="warning" style="text-align:center;">
+                    <span class="subtext">Warning: This page may not be compatible with small screens.</span>
+                </div>
+            </div>
             <div class="row" style="margin-bottom: 1rem;">
                 <div class="col-4">
                     <div class="text" id="timer"></div>

@@ -31,7 +31,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['repa
         exit();
     }
     else if (strlen($pass) < 5) {
-        header("Location: signup.php?error=the password must be more 5 or more characters&$missing_data");
+        header("Location: signup.php?error=the password must be 5 or more characters&$missing_data");
         exit();
     }
     else {
