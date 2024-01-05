@@ -6,6 +6,18 @@ var typed = new Typed('#element', {
   cursorChar: '　',
 });
 
+//disable scrolling with the spacebar when nothing is selected
+window.addEventListener('keydown', function(e) {
+  if (e.code === 'Space' && e.target === document.body) {
+      e.preventDefault();
+  }
+});
+
+//scroll to leaderboard onclick
+function scrollToTable() {
+  var table = document.getElementById("tableId");
+  table.scrollIntoView();
+}
 
 //focus the textfield on load
 function focusGameField() {
@@ -49,6 +61,7 @@ document.getElementById('toggleGamemode').addEventListener('click', function() {
 
 
 //game logic
+
 words.sort(() => shuffle ? Math.random() - 0.5 : 0);
 let currentWordIndex = 0;
 let currentCharIndex = 0;
@@ -74,12 +87,17 @@ window.onload = function() {
   if(shuffle) {
   document.getElementById("timer").innerHTML = 30;
   }
-    //start
     gameField.addEventListener('input', function() {
       if (!timer) {
+
+        //start
+        //ajax to update startcount
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "update-startcount.php", true);
+        xhr.send();
+
         startTime = Date.now();
         let timeLeft = 30;
-
         timer = setInterval(function() {
           timeLeft -= 1;
           if (shuffle) {
@@ -94,6 +112,19 @@ window.onload = function() {
               let minutes = (endTime - startTime) / 60000;
               let wpm = Math.round(((wordsTyped / minutes) * 100) / 100);
               document.getElementById("game-messages").innerHTML = "Words per minute: " + wpm;
+              //shuffle mode game over
+
+              //ajax to update highscore
+              var xhr = new XMLHttpRequest();
+              xhr.open("POST", "update-highscore.php", true);
+              xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+              xhr.send("newScore=" + encodeURIComponent(wpm));
+
+              //ajax to update playcount
+              var xhr = new XMLHttpRequest();
+              xhr.open("POST", "update-playcount.php", true);
+              xhr.send();
+
               document.getElementById("gameovertext").innerHTML = 'Tab + Enter to restart';
             } else {
               document.getElementById("timer").innerHTML = timeLeft;
@@ -114,13 +145,20 @@ function checkInput() {
   var gameField = document.getElementById("gameField");
   var input = gameField.value;
   if (input[input.length - 1] === " ") {
+
     //next word
+    //ajax to update wordstyped
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "update-wordstyped.php", true);
+    xhr.send();
+
     if (input.trim() === words[currentWordIndex]) {
       gameField.value = "";
       input = "";
       document.getElementById("game-messages").children[currentWordIndex].style.display = 'none'; //hide the correct word
       currentWordIndex++;
       correct++;
+
       currentCharIndex = 0;
       if (currentWordIndex < words.length) {
         document.getElementById("game-messages").children[currentWordIndex].classList.add("current-word");
@@ -133,6 +171,7 @@ function checkInput() {
         let minutes = (endTime - startTime) / 60000;
         let wpm = Math.round(((wordsTyped / minutes) * 100) / 100);
         document.getElementById("game-messages").innerHTML = "Words per minute: " + wpm;
+        
         document.getElementById("gameovertext").innerHTML = 'Tab + Enter to restart';
         }else{
         document.getElementById("game-messages").innerHTML = "Cheater !!";

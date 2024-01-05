@@ -78,10 +78,8 @@
 body {
     animation: color-cycle 6s linear infinite;
     transition: background-color 0.5s ease;
-    overflow: hidden;
     scrollbar-width: none;
     -ms-overflow-style: none;
-
 }
 body::-webkit-scrollbar {
     display: none;
@@ -136,7 +134,7 @@ body::-webkit-scrollbar {
 }
 .center {
     height: 50vh; /* This is the height of the element */
-    margin-top: 25vh;
+    margin-top: 20vh;
 }
 .row {
     background-color: transparent;
@@ -152,4 +150,54 @@ body::-webkit-scrollbar {
 #game-messages {
     display: flex;
     align-items: center;
+}
+.leaderboardtext {
+    font-family: NotoSerifDisplay-Medium,serif;
+    font-size: 2.5rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    color: whitesmoke;
+    text-shadow: 1px 3px 3px rgba(0,0,0,0.31);
+}
+
+/*leaderboard*/
+.leaderboard {
+    background: none; /* Add a background color */
+}
+
+table {
+    margin-top: 30vh;
+    margin-bottom: 75vh;
+    width: 100%;
+    border: 2px solid rgba(245, 245, 245, 0.7);
+    border-spacing: 0; /* Add border-spacing */
+    border-collapse: separate;
+    border-radius: 10px; /* Move border-radius here */
+}
+
+th {
+    background:none;
+    padding: 10px;
+    text-align: left;
+    border:none;
+    font-family: NotoSerifDisplay-Regular,serif;
+    font-size: 1.5rem;
+    color: whitesmoke;
+    text-shadow: 1px 3px 3px rgba(0,0,0,0.5);
+}
+
+td {
+    font-family: NotoSerifDisplay-Medium,serif;
+    font-size: 1.25rem;
+    color: whitesmoke;
+    text-shadow: 1px 3px 3px rgba(0,0,0,0.5);
+    padding: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f223;
+}
+
+tr:hover {
+    background-color: #f2f2f260;
 }
