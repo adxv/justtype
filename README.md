@@ -1,2 +1,2 @@
 simple typing game
-deployed at justtype.netlify.com
+deployed at https://strasszi.web.elte.hu (please don't troll)
